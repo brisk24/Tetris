@@ -12,9 +12,11 @@ namespace Tetris
 {
     public partial class Form1 : Form
     {
+        Board board;
         public Form1()
         {
             InitializeComponent();
+            board = new Board(panelBoard);
         }
     }
 }
