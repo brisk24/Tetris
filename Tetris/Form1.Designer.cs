@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelBoard = new System.Windows.Forms.Panel();
             this.labelResoult = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelMini = new System.Windows.Forms.Panel();
             this.labelHelp = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -50,13 +50,13 @@
             this.labelResoult.Size = new System.Drawing.Size(145, 113);
             this.labelResoult.TabIndex = 1;
             // 
-            // panel1
+            // panelMini
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Location = new System.Drawing.Point(256, 102);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(150, 150);
-            this.panel1.TabIndex = 2;
+            this.panelMini.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMini.Location = new System.Drawing.Point(256, 102);
+            this.panelMini.Name = "panelMini";
+            this.panelMini.Size = new System.Drawing.Size(150, 150);
+            this.panelMini.TabIndex = 2;
             // 
             // labelHelp
             // 
@@ -74,7 +74,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 502);
             this.Controls.Add(this.labelHelp);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelMini);
             this.Controls.Add(this.labelResoult);
             this.Controls.Add(this.panelBoard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -90,7 +90,7 @@
 
         private System.Windows.Forms.Panel panelBoard;
         private System.Windows.Forms.Label labelResoult;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelMini;
         private System.Windows.Forms.Label labelHelp;
     }
 }
