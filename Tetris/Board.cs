@@ -11,6 +11,9 @@ namespace Tetris
         PictureBox[,] box;
         int[,] map, mapBack;
         Panel panel;
+        Figure figure;
+        Coord statPosition = new Coord(4, 1);
+        Coord position = new Coord(0, 0);
         public Board(Panel panel)
         {
             this.panel = panel;
@@ -43,7 +46,13 @@ namespace Tetris
 
         void AddFigureOnBoard()
         {
-            mapBack[2, 3] = mapBack[2, 4] = mapBack[2, 5] = 1;
+            figure = new Figure();
+            position = statPosition;
+
+
+            foreach (Coord coord in figure.coord)
+                mapBack[position.x + coord.x, position.y + coord.y] = 1;
+            RefreshBoard();
         }
 
         void RefreshBoard()
