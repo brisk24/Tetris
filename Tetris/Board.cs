@@ -75,5 +75,6 @@ namespace Tetris
 
             RefreshBoard();
         }
+        //todo: Добавить кнопки влево, вправо и перемещение фигуры
     }
 }
