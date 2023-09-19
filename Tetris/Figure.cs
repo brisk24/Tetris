@@ -19,9 +19,21 @@ namespace Tetris
     class Figure
     {
         public Coord[] coord { private set; get; }
+        static Random rnd = new Random();
+        public int nr { private set; get; }
         public Figure()
         {
-            Figure_S();
+            nr = rnd.Next(1, 8);
+            switch(nr)
+            {
+                case 1: Figure_I(); break;
+                case 2: Figure_O(); break;
+                case 3: Figure_L(); break;
+                case 4: Figure_J(); break;
+                case 5: Figure_T(); break;
+                case 6: Figure_Z(); break;
+                case 7: Figure_S(); break;
+            }
         }
 
         void Figure_I()
