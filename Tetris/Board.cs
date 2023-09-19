@@ -41,7 +41,7 @@ namespace Tetris
                     panel.Controls.Add(picture);
                     box[x, y] = picture;
                     map[x, y] = mapBack[x, y] = 0;
-                }       
+                }
         }
 
         void AddFigureOnBoard()
@@ -50,19 +50,30 @@ namespace Tetris
             position = statPosition;
 
 
-            foreach (Coord coord in figure.coord)
-                mapBack[position.x + coord.x, position.y + coord.y] = 1;
-            RefreshBoard();
+            Step(0, 0);
+
         }
 
         void RefreshBoard()
         {
             for (int x = 0; x < sizeX; x++)
                 for (int y = 0; y < sizeY; y++)
-                {
-                    box[x, y].BackColor = mapBack[x, y] == 0 ? SystemColors.ControlLightLight : Color.Black;
-                }
+                    box[x, y].BackColor = map[x, y] > 0 ? Color.Black : mapBack[x, y] == 0 ? SystemColors.ControlLightLight : Color.Black;
         }
+        public void Step(int sx, int sy)
+        {
+            foreach (Coord coord in figure.coord)
+            {
+                map[position.x + coord.x, position.y + coord.y] = 0;
+            } 
 
+            foreach (Coord coord in figure.coord)
+                map[position.x + coord.x + sx, position.y + coord.y + sy] = 1;
+
+            position.x += sx;
+            position.y += sy;
+
+            RefreshBoard();
+        }
     }
 }

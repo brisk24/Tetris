@@ -24,7 +24,7 @@ namespace Tetris
         public Figure()
         {
             nr = rnd.Next(1, 8);
-            switch(nr)
+            switch (nr)
             {
                 case 1: Figure_I(); break;
                 case 2: Figure_O(); break;
@@ -33,6 +33,7 @@ namespace Tetris
                 case 5: Figure_T(); break;
                 case 6: Figure_Z(); break;
                 case 7: Figure_S(); break;
+                default: coord = null; break;
             }
         }
 

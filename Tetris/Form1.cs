@@ -18,5 +18,10 @@ namespace Tetris
             InitializeComponent();
             board = new Board(panelBoard);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            board.Step(0, 1);
+        }
     }
 }
