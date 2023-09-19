@@ -21,20 +21,85 @@ namespace Tetris
         public Coord[] coord { private set; get; }
         public Figure()
         {
-            Figure_I();
+            Figure_S();
         }
 
         void Figure_I()
         {
             coord = new Coord[]
             {
-                new Coord(-1, 0),
-                new Coord(0, 0),
                 new Coord(1, 0),
-                new Coord(2, 0),
+                new Coord(1, 1),
+                new Coord(1, 2),
+                new Coord(1, 3),
             };
         }
+
+        void Figure_O()
+        {
+            coord = new Coord[]
+            {
+                new Coord(0,0),
+                new Coord(1,0),
+                new Coord(0,1),
+                new Coord(1,1),
+            };
+        }
+
+        void Figure_L()
+        {
+            coord = new Coord[]
+            {
+                new Coord(0, 0),
+                new Coord(0, 1),
+                new Coord(0, 2),
+                new Coord(1, 2),
+            };
+        }
+
+        void Figure_J()
+        {
+            coord = new Coord[]
+            {
+                new Coord(1,0),
+                new Coord(1,1),
+                new Coord(1,2),
+                new Coord(0,2),
+            };
+        }
+
+        void Figure_T()
+        {
+            coord = new Coord[]
+            {
+                new Coord(1, 0),
+                new Coord(1, 1),
+                new Coord(0, 1),
+                new Coord(2, 1),
+            };
+        }
+
+        void Figure_Z()
+        {
+            coord = new Coord[]
+            {
+                new Coord(0, 0),
+                new Coord(1, 0),
+                new Coord(1, 1),
+                new Coord(2, 1),
+            };
+        }
+
+        void Figure_S()
+        {
+            coord = new Coord[]
+           {
+                new Coord(0, 0),
+                new Coord(1, 0),
+                new Coord(0, 1),
+                new Coord(-1, 1),
+           };
+        }
+
     }
-//todo: Добавить методы для создания всех фигур
-    // I O L J T Z S
 }
