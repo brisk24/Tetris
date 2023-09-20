@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,19 @@ namespace Tetris
         public Coord[] coord { private set; get; }
         static Random rnd = new Random();
         public int nr { private set; get; }
+        
+        Color[] figureColor = new Color[]
+        {
+            Color.WhiteSmoke,
+            Color.Green,
+            Color.Red,
+            Color.Black,
+            Color.OrangeRed,
+            Color.Purple,
+            Color.DarkBlue,
+            Color.Gold
+        };
+        
         public Figure()
         {
             nr = rnd.Next(1, 8);
@@ -112,6 +126,11 @@ namespace Tetris
                 new Coord(0, 1),
                 new Coord(-1, 1),
            };
+        }
+
+        public Color ColorFig(int number)
+        {
+            return figureColor[number];
         }
 
     }

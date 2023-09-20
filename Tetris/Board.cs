@@ -67,7 +67,7 @@ namespace Tetris
         {
             for (int x = 0; x < sizeX; x++)
                 for (int y = 0; y < sizeY; y++)
-                    box[x, y].BackColor = map[x, y] > 0 ? Color.Black : mapBack[x, y] == 0 ? SystemColors.ControlLightLight : Color.Black;
+                    box[x, y].BackColor = figure.ColorFig(map[x, y] > 0 ? map[x, y] : mapBack[x, y]);
         }
         public void Step(int sx, int sy)
         {
@@ -90,7 +90,7 @@ namespace Tetris
                 map[position.x + coord.x, position.y + coord.y] = 0;
 
             foreach (Coord coord in figure.coord)
-                map[position.x + coord.x + sx, position.y + coord.y + sy] = 1;
+                map[position.x + coord.x + sx, position.y + coord.y + sy] = figure.nr;
 
             position.x += sx;
             position.y += sy;
