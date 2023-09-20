@@ -23,5 +23,15 @@ namespace Tetris
         {
             board.Step(0, 1);
         }
+
+        private void buttonLeft_Click(object sender, EventArgs e)
+        {
+            board.Step(-1, 0);
+        }
+
+        private void buttonRight_Click(object sender, EventArgs e)
+        {
+            board.Step(1, 0);
+        }
     }
 }

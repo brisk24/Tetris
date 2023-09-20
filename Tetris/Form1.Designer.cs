@@ -33,7 +33,9 @@
             this.labelResoult = new System.Windows.Forms.Label();
             this.panelMini = new System.Windows.Forms.Panel();
             this.labelHelp = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonDown = new System.Windows.Forms.Button();
+            this.buttonLeft = new System.Windows.Forms.Button();
+            this.buttonRight = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panelBoard
@@ -69,22 +71,44 @@
             this.labelHelp.Text = "Управление:\r\nДвижение стрелками\r\nВлево, Вправо, Вниз\r\n\r\nПеревернуть - Вверх\r\nПауз" +
     "а - Пробел\r\nВыход - Escape";
             // 
-            // button1
+            // buttonDown
             // 
-            this.button1.Location = new System.Drawing.Point(292, 267);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Движение";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonDown.Location = new System.Drawing.Point(292, 311);
+            this.buttonDown.Name = "buttonDown";
+            this.buttonDown.Size = new System.Drawing.Size(75, 23);
+            this.buttonDown.TabIndex = 4;
+            this.buttonDown.Text = "Вниз";
+            this.buttonDown.UseVisualStyleBackColor = true;
+            this.buttonDown.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonLeft
+            // 
+            this.buttonLeft.Location = new System.Drawing.Point(259, 282);
+            this.buttonLeft.Name = "buttonLeft";
+            this.buttonLeft.Size = new System.Drawing.Size(44, 23);
+            this.buttonLeft.TabIndex = 5;
+            this.buttonLeft.Text = "<---";
+            this.buttonLeft.UseVisualStyleBackColor = true;
+            this.buttonLeft.Click += new System.EventHandler(this.buttonLeft_Click);
+            // 
+            // buttonRight
+            // 
+            this.buttonRight.Location = new System.Drawing.Point(344, 282);
+            this.buttonRight.Name = "buttonRight";
+            this.buttonRight.Size = new System.Drawing.Size(44, 23);
+            this.buttonRight.TabIndex = 6;
+            this.buttonRight.Text = "--->";
+            this.buttonRight.UseVisualStyleBackColor = true;
+            this.buttonRight.Click += new System.EventHandler(this.buttonRight_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 502);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonRight);
+            this.Controls.Add(this.buttonLeft);
+            this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.labelHelp);
             this.Controls.Add(this.panelMini);
             this.Controls.Add(this.labelResoult);
@@ -104,7 +128,9 @@
         private System.Windows.Forms.Label labelResoult;
         private System.Windows.Forms.Panel panelMini;
         private System.Windows.Forms.Label labelHelp;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonDown;
+        private System.Windows.Forms.Button buttonLeft;
+        private System.Windows.Forms.Button buttonRight;
     }
 }
 
