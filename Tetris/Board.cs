@@ -46,6 +46,15 @@ namespace Tetris
 
         void AddFigureOnBoard()
         {
+            if(figure != null)
+            {
+                foreach (Coord coord in figure.coord)
+                {
+                    map[position.x + coord.x, position.y + coord.y] = 0;
+                    mapBack[position.x + coord.x, position.y + coord.y] = figure.nr;
+                }
+            }
+
             figure = new Figure();
             position = statPosition;
 
@@ -62,10 +71,23 @@ namespace Tetris
         }
         public void Step(int sx, int sy)
         {
-            foreach (Coord coord in figure.coord)
+            foreach(Coord coord in figure.coord)
             {
+                if (position.x + coord.x + sx < 0 || 
+                    position.x + coord.x + sx >= sizeX ||
+                    mapBack[position.x + coord.x + sx, position.y + coord.y] > 0)
+                    return;
+
+                if(position.y + coord.y + sy >= sizeY || mapBack[position.x + coord.x, position.y + coord.y + sy] > 0)
+                {
+                    AddFigureOnBoard();
+                    return;
+                }
+            }
+
+
+            foreach (Coord coord in figure.coord)
                 map[position.x + coord.x, position.y + coord.y] = 0;
-            } 
 
             foreach (Coord coord in figure.coord)
                 map[position.x + coord.x + sx, position.y + coord.y + sy] = 1;
@@ -75,6 +97,5 @@ namespace Tetris
 
             RefreshBoard();
         }
-        //todo: Добавить кнопки влево, вправо и перемещение фигуры
     }
 }
