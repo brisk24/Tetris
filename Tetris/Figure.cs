@@ -22,7 +22,7 @@ namespace Tetris
         public Coord[] coord { private set; get; }
         static Random rnd = new Random();
         public int nr { private set; get; }
-        
+
         Color[] figureColor = new Color[]
         {
             Color.WhiteSmoke,
@@ -34,10 +34,18 @@ namespace Tetris
             Color.DarkBlue,
             Color.Gold
         };
-        
+
+        int polFigure;
         public Figure()
         {
             nr = rnd.Next(1, 8);
+            polFigure = rnd.Next(0, 5);
+
+            Turn();
+
+        }
+        public void Turn()
+        {
             switch (nr)
             {
                 case 1: Figure_I(); break;
@@ -50,29 +58,64 @@ namespace Tetris
                 default: coord = null; break;
             }
         }
-
         void Figure_I()
         {
-            coord = new Coord[]
+            if (polFigure >= 2)
+                polFigure = 0;
+
+            polFigure++;
+
+            switch (polFigure)
             {
-                new Coord(1, 0),
-                new Coord(1, 1),
-                new Coord(1, 2),
-                new Coord(1, 3),
-            };
+                case 1:
+                    coord = new Coord[]
+                {
+                     new Coord(1, 0),
+                     new Coord(1, 1),
+                     new Coord(1, 2),
+                     new Coord(1, 3),
+                };
+                break;
+
+                case 2:
+                    coord = new Coord[]
+                {
+                     new Coord(-1, 0),
+                     new Coord(0, 0),
+                     new Coord(1, 0),
+                     new Coord(2, 0),
+                };
+                break;
+            }
+
         }
 
         void Figure_O()
         {
-            coord = new Coord[]
+            if (polFigure >= 1)
+                polFigure = 0;
+
+            polFigure++;
+
+            switch (polFigure)
             {
-                new Coord(0,0),
-                new Coord(1,0),
-                new Coord(0,1),
-                new Coord(1,1),
+                case 1:
+
+                    coord = new Coord[]
+                    {
+                       new Coord(0,0),
+                       new Coord(1,0),
+                       new Coord(0,1),
+                       new Coord(1,1),
+                    }; 
+                break;
             };
+
         }
 
+
+
+        //todo: Написать повороты для остальных фигур
         void Figure_L()
         {
             coord = new Coord[]

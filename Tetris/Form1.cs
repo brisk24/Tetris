@@ -17,6 +17,7 @@ namespace Tetris
         {
             InitializeComponent();
             board = new Board(panelBoard);
+            timer.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,6 +33,16 @@ namespace Tetris
         private void buttonRight_Click(object sender, EventArgs e)
         {
             board.Step(1, 0);
+        }
+
+        private void buttonTurn_Click(object sender, EventArgs e)
+        {
+            board.Turn();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            board.Step(0, 1);
         }
     }
 }

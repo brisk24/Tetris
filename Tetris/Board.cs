@@ -97,5 +97,19 @@ namespace Tetris
 
             RefreshBoard();
         }
+        public void Turn()
+        {
+            foreach(Coord coord in figure.coord)
+            {
+                map[position.x + coord.x, position.y + coord.y] = 0;
+            }
+            figure.Turn();
+
+            foreach (Coord coord in figure.coord)
+            {
+                map[position.x + coord.x, position.y + coord.y] = figure.nr;
+            }
+            RefreshBoard();
+        }
     }
 }

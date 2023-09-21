@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelBoard = new System.Windows.Forms.Panel();
             this.labelResoult = new System.Windows.Forms.Label();
@@ -36,6 +37,8 @@
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
+            this.buttonTurn = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // panelBoard
@@ -73,7 +76,7 @@
             // 
             // buttonDown
             // 
-            this.buttonDown.Location = new System.Drawing.Point(292, 311);
+            this.buttonDown.Location = new System.Drawing.Point(297, 311);
             this.buttonDown.Name = "buttonDown";
             this.buttonDown.Size = new System.Drawing.Size(75, 23);
             this.buttonDown.TabIndex = 4;
@@ -85,7 +88,7 @@
             // 
             this.buttonLeft.Location = new System.Drawing.Point(259, 282);
             this.buttonLeft.Name = "buttonLeft";
-            this.buttonLeft.Size = new System.Drawing.Size(44, 23);
+            this.buttonLeft.Size = new System.Drawing.Size(32, 23);
             this.buttonLeft.TabIndex = 5;
             this.buttonLeft.Text = "<---";
             this.buttonLeft.UseVisualStyleBackColor = true;
@@ -93,19 +96,35 @@
             // 
             // buttonRight
             // 
-            this.buttonRight.Location = new System.Drawing.Point(344, 282);
+            this.buttonRight.Location = new System.Drawing.Point(376, 282);
             this.buttonRight.Name = "buttonRight";
-            this.buttonRight.Size = new System.Drawing.Size(44, 23);
+            this.buttonRight.Size = new System.Drawing.Size(30, 23);
             this.buttonRight.TabIndex = 6;
             this.buttonRight.Text = "--->";
             this.buttonRight.UseVisualStyleBackColor = true;
             this.buttonRight.Click += new System.EventHandler(this.buttonRight_Click);
+            // 
+            // buttonTurn
+            // 
+            this.buttonTurn.Location = new System.Drawing.Point(297, 282);
+            this.buttonTurn.Name = "buttonTurn";
+            this.buttonTurn.Size = new System.Drawing.Size(73, 23);
+            this.buttonTurn.TabIndex = 7;
+            this.buttonTurn.Text = "Поворот";
+            this.buttonTurn.UseVisualStyleBackColor = true;
+            this.buttonTurn.Click += new System.EventHandler(this.buttonTurn_Click);
+            // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 502);
+            this.Controls.Add(this.buttonTurn);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonDown);
@@ -131,6 +150,8 @@
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonRight;
+        private System.Windows.Forms.Button buttonTurn;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
