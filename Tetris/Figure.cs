@@ -23,6 +23,7 @@ namespace Tetris
         static Random rnd = new Random();
         public int nr { private set; get; }
 
+        //todo: подобрать карсивые цвета для фигур
         Color[] figureColor = new Color[]
         {
             Color.WhiteSmoke,
@@ -113,9 +114,6 @@ namespace Tetris
 
         }
 
-
-
-        //todo: Написать повороты для остальных фигур Z,S
         void Figure_L()
         {
             if (polFigure >= 4)
@@ -280,15 +278,15 @@ namespace Tetris
             switch (polFigure)
             {
                 case 1:
-                   coord = new Coord[]
-                   {
+                    coord = new Coord[]
+                    {
                        new Coord(0, 0),
                        new Coord(1, 0),
                        new Coord(1, 1),
                        new Coord(2, 1),
-                   };
-                break;
-                    
+                    };
+                    break;
+
                 case 2:
                     coord = new Coord[]
                     {
@@ -298,24 +296,45 @@ namespace Tetris
                         new Coord(0, 2),
                     };
                     break;
+            }
         }
-    }
 
-    void Figure_S()
-    {
-        coord = new Coord[]
-       {
-                new Coord(0, 0),
-                new Coord(1, 0),
-                new Coord(0, 1),
-                new Coord(-1, 1),
-       };
-    }
+        void Figure_S()
+        {
+            if (polFigure >= 2)
+                polFigure = 0;
 
-    public Color ColorFig(int number)
-    {
-        return figureColor[number];
-    }
+            polFigure++;
 
-}
+            switch (polFigure)
+            {
+                case 1:
+                    coord = new Coord[]
+                      {
+                         new Coord(0, 0),
+                         new Coord(1, 0),
+                         new Coord(-1, 1),
+                         new Coord(0, 1),
+                      };
+                    break;
+
+                    case 2:
+                    coord = new Coord[]
+                    {
+                        new Coord(0, 0),
+                        new Coord(0, 1),
+                        new Coord(1, 1),
+                        new Coord(1, 2),
+                    };
+                    break;
+            }
+
+        }
+
+        public Color ColorFig(int number)
+        {
+            return figureColor[number];
+        }
+
+    }
 }
