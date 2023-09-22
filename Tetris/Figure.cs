@@ -75,7 +75,7 @@ namespace Tetris
                      new Coord(1, 2),
                      new Coord(1, 3),
                 };
-                break;
+                    break;
 
                 case 2:
                     coord = new Coord[]
@@ -85,7 +85,7 @@ namespace Tetris
                      new Coord(1, 0),
                      new Coord(2, 0),
                 };
-                break;
+                    break;
             }
 
         }
@@ -107,25 +107,66 @@ namespace Tetris
                        new Coord(1,0),
                        new Coord(0,1),
                        new Coord(1,1),
-                    }; 
-                break;
+                    };
+                    break;
             };
 
         }
 
 
 
-        //todo: Написать повороты для остальных фигур
+        //todo: Написать повороты для остальных фигур J,T,Z,S
         void Figure_L()
         {
-            coord = new Coord[]
+            if (polFigure >= 2)
+                polFigure = 0;
+
+            polFigure++;
+
+            switch (polFigure)
             {
-                new Coord(0, 0),
-                new Coord(0, 1),
-                new Coord(0, 2),
-                new Coord(1, 2),
+                case 1:
+                    coord = new Coord[]
+                    {
+                       new Coord(0, 0),
+                       new Coord(0, 1),
+                       new Coord(0, 2),
+                       new Coord(1, 2),
+                    };
+                    break;
+
+                case 2:
+                    coord = new Coord[]
+                    {
+                       new Coord(0, 0),
+                       new Coord(1, 0),
+                       new Coord(2, 0),
+                       new Coord(0, 1),
+                    };
+                    break;
+
+                case 3:
+                    coord = new Coord[]
+                    {
+                        new Coord(0,0),
+                        new Coord(1,0),
+                        new Coord(1,1),
+                        new Coord(1,2),
+                    };
+                    break;
+
+                case 4:
+                    coord = new Coord[]
+                    {
+                        new Coord (0,0),
+                        new Coord (1,0),
+                        new Coord (2,0),
+                        new Coord (0,-1),
+                    };
+                    break;
             };
         }
+
 
         void Figure_J()
         {
