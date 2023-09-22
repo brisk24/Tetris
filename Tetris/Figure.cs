@@ -115,7 +115,7 @@ namespace Tetris
 
 
 
-        //todo: Написать повороты для остальных фигур T,Z,S
+        //todo: Написать повороты для остальных фигур Z,S
         void Figure_L()
         {
             if (polFigure >= 4)
@@ -220,13 +220,54 @@ namespace Tetris
 
         void Figure_T()
         {
-            coord = new Coord[]
+            if (polFigure >= 4)
+                polFigure = 0;
+
+            polFigure++;
+
+            switch (polFigure)
             {
-                new Coord(1, 0),
-                new Coord(1, 1),
-                new Coord(0, 1),
-                new Coord(2, 1),
-            };
+                case 1:
+                  coord = new Coord[]
+                  {
+                      new Coord(1, 0),
+                      new Coord(1, 1),
+                      new Coord(0, 1),
+                      new Coord(2, 1),
+                  };
+                break;
+
+                case 2:
+                    coord = new Coord[]
+                    {
+                      new Coord(1, 0),
+                      new Coord(1, 1),
+                      new Coord(1, 2),
+                      new Coord(2, 1),
+                    };
+                    break;
+
+                case 3:
+                    coord = new Coord[]
+                    {
+                      new Coord(0, 1),
+                      new Coord(1, 1),
+                      new Coord(2, 1),
+                      new Coord(1, 2),
+                    };
+                    break;
+
+
+                case 4:
+                    coord = new Coord[]
+                    {
+                      new Coord(0, 1),
+                      new Coord(1, 0),
+                      new Coord(1, 1),
+                      new Coord(1, 2),
+                    };
+                    break;
+            }
         }
 
         void Figure_Z()
