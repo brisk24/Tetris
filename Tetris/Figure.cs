@@ -186,7 +186,7 @@ namespace Tetris
                     };
                     break;
 
-                    case 2:
+                case 2:
                     coord = new Coord[]
                     {
                         new Coord(0, 0),
@@ -228,14 +228,14 @@ namespace Tetris
             switch (polFigure)
             {
                 case 1:
-                  coord = new Coord[]
-                  {
+                    coord = new Coord[]
+                    {
                       new Coord(1, 0),
                       new Coord(1, 1),
                       new Coord(0, 1),
                       new Coord(2, 1),
-                  };
-                break;
+                    };
+                    break;
 
                 case 2:
                     coord = new Coord[]
@@ -272,30 +272,50 @@ namespace Tetris
 
         void Figure_Z()
         {
-            coord = new Coord[]
-            {
-                new Coord(0, 0),
-                new Coord(1, 0),
-                new Coord(1, 1),
-                new Coord(2, 1),
-            };
-        }
+            if (polFigure >= 2)
+                polFigure = 0;
 
-        void Figure_S()
-        {
-            coord = new Coord[]
-           {
+            polFigure++;
+
+            switch (polFigure)
+            {
+                case 1:
+                   coord = new Coord[]
+                   {
+                       new Coord(0, 0),
+                       new Coord(1, 0),
+                       new Coord(1, 1),
+                       new Coord(2, 1),
+                   };
+                break;
+                    
+                case 2:
+                    coord = new Coord[]
+                    {
+                        new Coord(1, 0),
+                        new Coord(0, 1),
+                        new Coord(1, 1),
+                        new Coord(0, 2),
+                    };
+                    break;
+        }
+    }
+
+    void Figure_S()
+    {
+        coord = new Coord[]
+       {
                 new Coord(0, 0),
                 new Coord(1, 0),
                 new Coord(0, 1),
                 new Coord(-1, 1),
-           };
-        }
-
-        public Color ColorFig(int number)
-        {
-            return figureColor[number];
-        }
-
+       };
     }
+
+    public Color ColorFig(int number)
+    {
+        return figureColor[number];
+    }
+
+}
 }
