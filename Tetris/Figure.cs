@@ -27,13 +27,14 @@ namespace Tetris
         Color[] figureColor = new Color[]
         {
             Color.WhiteSmoke,
-            Color.Green,
-            Color.Red,
-            Color.Black,
-            Color.OrangeRed,
-            Color.Purple,
-            Color.DarkBlue,
-            Color.Gold
+            ColorTranslator.FromHtml("#0000FF"),
+            ColorTranslator.FromHtml("#00FFFF"),
+            ColorTranslator.FromHtml("#00FF00"),
+            ColorTranslator.FromHtml("#FFFF00"),
+            ColorTranslator.FromHtml("#FF0000"),
+            ColorTranslator.FromHtml("#FF00FF"),
+            ColorTranslator.FromHtml("#000000"),
+            ColorTranslator.FromHtml("#DEB887"),
         };
 
         int polFigure;
