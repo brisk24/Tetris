@@ -11,11 +11,11 @@ namespace Tetris
     class BoardMini
     {
         int sizeX = 4;
-        int sizeY = 4;
+        int sizeY = 5;
 
         PictureBox[,] box;
         Panel panel;
-        Coord position = new Coord(1, 1);
+        Coord position = new Coord(1, 0);
         Color backColor = Color.WhiteSmoke;
 
         public BoardMini(Panel panel)
