@@ -11,12 +11,14 @@ namespace Tetris
         PictureBox[,] box;
         int[,] map, mapBack;
         Panel panel;
-        Figure figure;
+        Figure figure, newFigure;
         Coord statPosition = new Coord(4, 1);
         Coord position = new Coord(0, 0);
-        public Board(Panel panel)
+        BoardMini boardMini;
+        public Board(Panel panel, Panel panelMini)
         {
             this.panel = panel;
+            boardMini = new BoardMini(panelMini);
             InitMap();
             AddFigureOnBoard();
             RefreshBoard();
@@ -55,7 +57,10 @@ namespace Tetris
                 }
             }
 
-            figure = new Figure();
+            figure = newFigure ?? new Figure();
+            newFigure = new Figure();
+            boardMini.RefreshBoard(newFigure);
+            
             position = statPosition;
 
 

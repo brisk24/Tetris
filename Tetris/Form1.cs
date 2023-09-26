@@ -16,30 +16,10 @@ namespace Tetris
         public Form1()
         {
             InitializeComponent();
-            board = new Board(panelBoard);
+            board = new Board(panelBoard, panelMini);
             timer.Enabled = true;
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            board.Step(0, 1);
-        }
-
-        private void buttonLeft_Click(object sender, EventArgs e)
-        {
-            board.Step(-1, 0);
-        }
-
-        private void buttonRight_Click(object sender, EventArgs e)
-        {
-            board.Step(1, 0);
-        }
-
-        private void buttonTurn_Click(object sender, EventArgs e)
-        {
-            board.Turn();
-        }
-
+     
         private void timer_Tick(object sender, EventArgs e)
         {
             if(Form1.ActiveForm == this)
@@ -48,13 +28,18 @@ namespace Tetris
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            if(e.KeyCode == Keys.Space)
+            {
+                SetPause();
+                return;
+            }
+            if (!timer.Enabled) return;
            switch(e.KeyCode)
             {          
                 case Keys.Left: board.Step(-1, 0); break;
                 case Keys.Right: board.Step(1, 0); break;
                 case Keys.Down: board.Step(0, 1); break;
-                case Keys.Up: board.Turn(); break;
-                case Keys.Space: SetPause(); break;
+                case Keys.Up: board.Turn(); break;              
             }
         }
         private void SetPause()

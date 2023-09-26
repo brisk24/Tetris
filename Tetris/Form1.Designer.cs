@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelBoard = new System.Windows.Forms.Panel();
+            this.labelPause = new System.Windows.Forms.Label();
             this.labelResoult = new System.Windows.Forms.Label();
             this.panelMini = new System.Windows.Forms.Panel();
             this.labelHelp = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.labelPause = new System.Windows.Forms.Label();
             this.panelBoard.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,11 +48,23 @@
             this.panelBoard.Size = new System.Drawing.Size(250, 500);
             this.panelBoard.TabIndex = 0;
             // 
+            // labelPause
+            // 
+            this.labelPause.AutoSize = true;
+            this.labelPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPause.ForeColor = System.Drawing.Color.Red;
+            this.labelPause.Location = new System.Drawing.Point(30, 192);
+            this.labelPause.Name = "labelPause";
+            this.labelPause.Size = new System.Drawing.Size(191, 42);
+            this.labelPause.TabIndex = 0;
+            this.labelPause.Text = "П А У З А";
+            this.labelPause.Visible = false;
+            // 
             // labelResoult
             // 
             this.labelResoult.Location = new System.Drawing.Point(256, 9);
             this.labelResoult.Name = "labelResoult";
-            this.labelResoult.Size = new System.Drawing.Size(145, 113);
+            this.labelResoult.Size = new System.Drawing.Size(150, 82);
             this.labelResoult.TabIndex = 1;
             // 
             // panelMini
@@ -77,18 +89,6 @@
             // 
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // labelPause
-            // 
-            this.labelPause.AutoSize = true;
-            this.labelPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPause.ForeColor = System.Drawing.Color.Red;
-            this.labelPause.Location = new System.Drawing.Point(30, 192);
-            this.labelPause.Name = "labelPause";
-            this.labelPause.Size = new System.Drawing.Size(191, 42);
-            this.labelPause.TabIndex = 0;
-            this.labelPause.Text = "П А У З А";
-            this.labelPause.Visible = false;
             // 
             // Form1
             // 
