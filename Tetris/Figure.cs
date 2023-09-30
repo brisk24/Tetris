@@ -46,6 +46,7 @@ namespace Tetris
             Turn();
 
         }
+        //поворт
         public void Turn()
         {
             switch (nr)
