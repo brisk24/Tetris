@@ -28,13 +28,13 @@ namespace Tetris
         {
             Color.WhiteSmoke,
             ColorTranslator.FromHtml("#0000FF"),
-            ColorTranslator.FromHtml("#00FFFF"),
-            ColorTranslator.FromHtml("#00FF00"),
-            ColorTranslator.FromHtml("#FFFF00"),
-            ColorTranslator.FromHtml("#FF0000"),
-            ColorTranslator.FromHtml("#FF00FF"),
-            ColorTranslator.FromHtml("#000000"),
-            ColorTranslator.FromHtml("#DEB887"),
+            ColorTranslator.FromHtml("#2aff31"),
+            ColorTranslator.FromHtml("#fe2afc"),
+            ColorTranslator.FromHtml("#fea524"),
+            ColorTranslator.FromHtml("#0c24fb"),
+            ColorTranslator.FromHtml("#fffd3a"),
+            ColorTranslator.FromHtml("#2dffff"),
+            ColorTranslator.FromHtml("#fe0c1c"),
         };
 
         int polFigure;
