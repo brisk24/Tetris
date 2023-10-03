@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Tetris
@@ -48,7 +49,7 @@ namespace Tetris
 
         void AddFigureOnBoard()
         {
-            if(figure != null)
+            if (figure != null)
             {
                 foreach (Coord coord in figure.coord)
                 {
@@ -60,7 +61,7 @@ namespace Tetris
             figure = newFigure ?? new Figure();
             newFigure = new Figure();
             boardMini.RefreshBoard(newFigure);
-            
+
             position = statPosition;
 
 
@@ -70,20 +71,52 @@ namespace Tetris
 
         void RefreshBoard()
         {
+            bool fire;
+            for (int y = 0; y < sizeY; y++)
+            {
+                fire = true;
+                for (int x = 0; x < sizeX; x++)
+                {
+                    if (mapBack[x, y] == 0) fire = false;
+                }
+                if (fire)
+                {
+                    DelLines(); break;
+                }
+            }
+
             for (int x = 0; x < sizeX; x++)
                 for (int y = 0; y < sizeY; y++)
                     box[x, y].BackColor = figure.ColorFig(map[x, y] > 0 ? map[x, y] : mapBack[x, y]);
         }
+
+        private void DelLines()
+        {
+            bool fire;
+            for (int y = 0; y < sizeY; y++)
+            {
+                fire = true;
+                for (int x = 0; x < sizeX; x++)
+                {
+                    if (mapBack[x, y] == 0) fire = false;
+                }
+                if (fire)
+                {
+                    mapBack = AddRow(TrimArray(mapBack, y));
+                }
+            }
+        }
+
         public void Step(int sx, int sy)
         {
-            foreach(Coord coord in figure.coord)
+            foreach (Coord coord in figure.coord)
             {
-                if (position.x + coord.x + sx < 0 || 
+                if (position.x + coord.x + sx < 0 ||
                     position.x + coord.x + sx >= sizeX ||
                     mapBack[position.x + coord.x + sx, position.y + coord.y] > 0)
                     return;
 
-                if(position.y + coord.y + sy >= sizeY || mapBack[position.x + coord.x, position.y + coord.y + sy] > 0)
+                if (position.y + coord.y + sy >= sizeY || mapBack[position.x + coord.x, position.y + coord.y + sy] > 0)
                 {
                     AddFigureOnBoard();
                     return;
@@ -104,7 +137,7 @@ namespace Tetris
         }
         public void Turn()
         {
-            foreach(Coord coord in figure.coord)
+            foreach (Coord coord in figure.coord)
             {
                 map[position.x + coord.x, position.y + coord.y] = 0;
             }
@@ -115,6 +148,39 @@ namespace Tetris
                 map[position.x + coord.x, position.y + coord.y] = figure.nr;
             }
             RefreshBoard();
+        }
+
+        private int[,] TrimArray(int[,] massiv, int rowToRemove)
+        {
+            int[,] result = new int[sizeX, sizeY - 1];
+            for (int y = 0, y1 = 0; y < sizeY; y++)
+                if (y == rowToRemove)
+                    continue;
+                else
+                {
+                    for (int x = 0; x < sizeX; x++)
+                        result[x, y1] = massiv[x, y];
+                    y1++;
+                }
+            return result;
+        }
+
+        private int[,] AddRow(int[,] massiv)
+        {
+            int[,] result = new int[sizeX, sizeY];
+            int y = sizeY - 1;
+            while (y >= 0)
+            {
+                for (int x = 0; x < sizeX; x++)
+                {
+                    if (y == 0)
+                        result[x, y] = 0;
+                    else
+                        result[x, y] = massiv[x, y - 1];
+                }
+                y--;
+            }
+            return result;
         }
     }
 }
