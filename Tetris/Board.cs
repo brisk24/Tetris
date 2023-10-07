@@ -16,9 +16,11 @@ namespace Tetris
         Coord statPosition = new Coord(4, 1);
         Coord position = new Coord(0, 0);
         BoardMini boardMini;
+        public int score { private set; get; }
         public Board(Panel panel, Panel panelMini)
         {
             this.panel = panel;
+            score = 0;
             boardMini = new BoardMini(panelMini);
             InitMap();
             AddFigureOnBoard();
@@ -58,7 +60,12 @@ namespace Tetris
                 }
             }
 
-            figure = newFigure ?? new Figure();
+            if (mapBack[3, 2] > 0 || mapBack[4, 2] > 0 || mapBack[5, 2] > 0 || mapBack[6, 2] > 0)
+            {
+                return;
+            }
+
+                figure = newFigure ?? new Figure();
             newFigure = new Figure();
             boardMini.RefreshBoard(newFigure);
 
@@ -92,6 +99,7 @@ namespace Tetris
 
         private void DelLines()
         {
+            int kol_now = 0;
             bool fire;
             for (int y = 0; y < sizeY; y++)
             {
@@ -103,7 +111,16 @@ namespace Tetris
                 if (fire)
                 {
                     mapBack = AddRow(TrimArray(mapBack, y));
+                    kol_now++;
                 }
+            }
+            switch (kol_now)
+            {
+                case 1: score += 100; break;
+                case 2: score += 300; break;
+                case 3: score += 700; break;
+                case 4: score += 1500; break;
+                default: score += 0; break;
             }
         }
 

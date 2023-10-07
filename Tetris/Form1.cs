@@ -22,8 +22,11 @@ namespace Tetris
      
         private void timer_Tick(object sender, EventArgs e)
         {
-            if(Form1.ActiveForm == this)
-              board.Step(0, 1);
+            if (Form1.ActiveForm == this)
+            {
+                board.Step(0, 1);
+                labelResoult.Text = $"Счёт: {board.score}";
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
