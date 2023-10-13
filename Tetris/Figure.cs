@@ -27,14 +27,14 @@ namespace Tetris
         Color[] figureColor = new Color[]
         {
             Color.WhiteSmoke,
-            ColorTranslator.FromHtml("#0000FF"),
-            ColorTranslator.FromHtml("#2aff31"),
-            ColorTranslator.FromHtml("#fe2afc"),
-            ColorTranslator.FromHtml("#fea524"),
-            ColorTranslator.FromHtml("#0c24fb"),
-            ColorTranslator.FromHtml("#fffd3a"),
-            ColorTranslator.FromHtml("#2dffff"),
-            ColorTranslator.FromHtml("#fe0c1c"),
+            ColorTranslator.FromHtml("#1c1ce6"), //Синий
+            ColorTranslator.FromHtml("#10de16"), //Зеленый
+            ColorTranslator.FromHtml("#b90bb7"), //Розовый
+            ColorTranslator.FromHtml("#eb900b"), //Коричневый
+            ColorTranslator.FromHtml("#dde422"), //Желтый
+            ColorTranslator.FromHtml("#080808"), //Черный
+            ColorTranslator.FromHtml("#59d2a9"), //?
+            ColorTranslator.FromHtml("#fe0c1c"), //Красный
         };
 
         int polFigure;
