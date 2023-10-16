@@ -17,10 +17,12 @@ namespace Tetris
         Coord position = new Coord(0, 0);
         BoardMini boardMini;
         public int score { private set; get; }
-        public Board(Panel panel, Panel panelMini)
+        deShowWin showWin;
+        public Board(Panel panel, Panel panelMini, deShowWin deShowWin)
         {
             this.panel = panel;
             score = 0;
+            showWin= deShowWin;
             boardMini = new BoardMini(panelMini);
             InitMap();
             AddFigureOnBoard();
@@ -32,6 +34,9 @@ namespace Tetris
             box = new PictureBox[sizeX, sizeY];
             map = new int[sizeX, sizeY];
             mapBack = new int[sizeX, sizeY];
+
+            panel.Controls.Clear();
+
             int boxSize = panel.Width / sizeX;
 
             for (int x = 0; x < sizeX; x++)
@@ -60,12 +65,19 @@ namespace Tetris
                 }
             }
 
-            if (mapBack[3, 2] > 0 || mapBack[4, 2] > 0 || mapBack[5, 2] > 0 || mapBack[6, 2] > 0)
+            figure = newFigure ?? new Figure();
+
+            foreach(Coord coord1in in figure.coord)
             {
-                return;
+                if(mapBack[statPosition.x + coord1in.x, statPosition.y + coord1in.y] > 0)
+                {
+                    showWin(false);
+                    return;
+                }
+                
             }
 
-                figure = newFigure ?? new Figure();
+                
             newFigure = new Figure();
             boardMini.RefreshBoard(newFigure);
 
@@ -159,6 +171,18 @@ namespace Tetris
                 map[position.x + coord.x, position.y + coord.y] = 0;
             }
             figure.Turn();
+
+            foreach(Coord coord in figure.coord)
+            {
+                while (position.x + coord.x < 0)
+                    position.x++;
+                while(position.x+ coord.x>= sizeX)
+                    position.x--;
+                while(position.y+ coord.y < 0)
+                    position.y++;
+                while (mapBack[position.x + coord.x, position.y+ coord.y]>0)
+                    position.y--;
+            }
 
             foreach (Coord coord in figure.coord)
             {

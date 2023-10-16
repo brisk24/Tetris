@@ -36,13 +36,11 @@
             this.panelMini = new System.Windows.Forms.Panel();
             this.labelHelp = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.panelBoard.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBoard
             // 
             this.panelBoard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelBoard.Controls.Add(this.labelPause);
             this.panelBoard.Location = new System.Drawing.Point(0, 1);
             this.panelBoard.Name = "panelBoard";
             this.panelBoard.Size = new System.Drawing.Size(250, 500);
@@ -53,7 +51,7 @@
             this.labelPause.AutoSize = true;
             this.labelPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelPause.ForeColor = System.Drawing.Color.Red;
-            this.labelPause.Location = new System.Drawing.Point(30, 192);
+            this.labelPause.Location = new System.Drawing.Point(29, 166);
             this.labelPause.Name = "labelPause";
             this.labelPause.Size = new System.Drawing.Size(191, 42);
             this.labelPause.TabIndex = 0;
@@ -95,6 +93,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 502);
+            this.Controls.Add(this.labelPause);
             this.Controls.Add(this.labelHelp);
             this.Controls.Add(this.panelMini);
             this.Controls.Add(this.labelResoult);
@@ -105,9 +104,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Тетрис";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.panelBoard.ResumeLayout(false);
-            this.panelBoard.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

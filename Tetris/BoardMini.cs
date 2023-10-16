@@ -30,6 +30,7 @@ namespace Tetris
            
             int boxSize = panel.Width / sizeX;
 
+            panel.Controls.Clear();
             for (int x = 0; x < sizeX; x++)
                 for (int y = 0; y < sizeY; y++)
                 {

@@ -10,13 +10,14 @@ using System.Windows.Forms;
 
 namespace Tetris
 {
+    public delegate void deShowWin(bool win);
     public partial class Form1 : Form
     {
         Board board;
         public Form1()
         {
             InitializeComponent();
-            board = new Board(panelBoard, panelMini);
+            board = new Board(panelBoard, panelMini, ShowWin);
             timer.Enabled = true;
         }
      
@@ -56,6 +57,11 @@ namespace Tetris
                 timer.Enabled = true;
                 labelPause.Visible = false;
             }
+        }
+        private void ShowWin(bool win)
+        {
+            MessageBox.Show("Вы проиграли!", "Игра окончена");
+            board = new Board(panelBoard, panelMini, ShowWin);
         }
     }
 }
