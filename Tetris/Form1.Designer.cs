@@ -60,6 +60,7 @@
             // 
             // labelResoult
             // 
+            this.labelResoult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelResoult.Location = new System.Drawing.Point(256, 9);
             this.labelResoult.Name = "labelResoult";
             this.labelResoult.Size = new System.Drawing.Size(150, 82);
