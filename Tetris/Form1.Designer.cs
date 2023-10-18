@@ -77,7 +77,7 @@
             // labelHelp
             // 
             this.labelHelp.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelHelp.Location = new System.Drawing.Point(256, 395);
+            this.labelHelp.Location = new System.Drawing.Point(256, 376);
             this.labelHelp.Name = "labelHelp";
             this.labelHelp.Size = new System.Drawing.Size(145, 98);
             this.labelHelp.TabIndex = 3;
